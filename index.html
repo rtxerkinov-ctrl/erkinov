@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- TOP COUNTRY / REGION BANNER (Just like in your screenshot) -->
+    <div class="region-banner" id="regionBanner">
+        <div class="region-inner">
+            <p class="region-text">Choose another country or region to see content specific to your location.</p>
+            <div class="region-controls">
+                <div class="region-select-box">
+                    <span class="check-icon">✓</span>
+                    <select id="countrySelect" aria-label="Select country or region">
+                        <option value="other" selected>Other country or region</option>
+                        <option value="us">United States</option>
+                        <option value="uz">Uzbekistan</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ae">United Arab Emirates</option>
+                    </select>
+                </div>
+                <button class="region-continue-btn" id="regionContinueBtn">Continue</button>
+                <button class="region-close-btn" id="regionCloseBtn" aria-label="Close">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL NAVIGATION -->
+    <header class="global-nav" id="globalNav">
+        <div class="nav-container">
+            <a href="#" class="nav-icon" aria-label="Apple Home" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m13.0729 17.6825a3.61 3.61 0 0 0 -1.7248 3.0365 3.5132 3.5132 0 0 0 2.1379 3.2223 8.394 8.394 0 0 1 -1.0948 2.2618c-.6816.9812-1.3943 1.9623-2.4787 1.9623s-1.3633-.63-2.613-.63c-1.2187 0-1.6525.6507-2.644.6507s-1.6834-.9089-2.4787-2.0243a9.7842 9.7842 0 0 1 -1.6628-5.2776c0-3.0984 2.014-4.7405 3.9969-4.7405 1.0535 0 1.9314.6919 2.5924.6919.63 0 1.6112-.7333 2.8092-.7333a3.7579 3.7579 0 0 1 3.1604 1.5802zm-3.7284-2.8918a3.5615 3.5615 0 0 0 .8469-2.22 1.5353 1.5353 0 0 0 -.031-.32 3.5686 3.5686 0 0 0 -2.3445 1.2084 3.4629 3.4629 0 0 0 -.8779 2.1585 1.419 1.419 0 0 0 .031.2892 1.19 1.19 0 0 0 .2169.0207 3.0935 3.0935 0 0 0 2.1586-1.1368z" fill="currentColor"></path>
+                </svg>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#store" data-menu="store">Store</a>
+                <a href="#mac" data-menu="mac">Mac</a>
+                <a href="#ipad" data-menu="ipad">iPad</a>
+                <a href="#iphone" data-menu="iphone">iPhone</a>
+                <a href="#watch" data-menu="watch">Watch</a>
+                <a href="#vision" data-menu="vision">Vision</a>
+                <a href="#airpods" data-menu="airpods">AirPods</a>
+                <a href="#homeview" data-menu="home">Home</a>
+                <a href="#entertainment" data-menu="entertainment">Entertainment</a>
+                <a href="#accessories" data-menu="accessories">Accessories</a>
+                <a href="#support" data-menu="support">Support</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="nav-icon" id="searchToggle" aria-label="Search apple.com">
+                    <svg width="15" height="44" viewBox="0 0 15 44">
+                        <path d="M14.298,27.202l-3.87-3.87c0.701-0.929,1.122-2.081,1.122-3.332c0-3.06-2.489-5.55-5.55-5.55c-3.06,0-5.55,2.49-5.55,5.55 c0,3.061,2.49,5.55,5.55,5.55c1.251,0,2.403-0.421,3.332-1.122l3.87,3.87c0.151,0.151,0.35,0.228,0.548,0.228 s0.396-0.076,0.548-0.228C14.601,27.995,14.601,27.505,14.298,27.202z M1.55,20c0-2.454,1.997-4.45,4.45-4.45 c2.454,0,4.45,1.997,4.45,4.45S8.454,24.45,6,24.45C3.546,24.45,1.55,22.454,1.55,20z" fill="currentColor"></path>
+                    </svg>
+                </button>
+
+                <button class="nav-icon bag-btn" id="bagToggle" aria-label="Shopping Bag">
+                    <svg height="44" viewBox="0 0 14 44" width="14">
+                        <path d="m11.3535 16.0283h-1.0205a3.4229 3.4229 0 0 0 -3.333-2.9648 3.4229 3.4229 0 0 0 -3.333 2.9648h-1.02a2.1184 2.1184 0 0 0 -2.117 2.1162v7.7155a2.1186 2.1186 0 0 0 2.1162 2.1167h8.707a2.1186 2.1186 0 0 0 2.1168-2.1167v-7.7155a2.1184 2.1184 0 0 0 -2.1165-2.1162zm-4.3535-1.8652a2.3169 2.3169 0 0 1 2.2222 1.8652h-4.4444a2.3169 2.3169 0 0 1 2.2222-1.8652zm5.37 11.6969a1.0182 1.0182 0 0 1 -1.0166 1.0171h-8.7069a1.0182 1.0182 0 0 1 -1.0165-1.0171v-7.7155a1.0178 1.0178 0 0 1 1.0166-1.0166h8.707a1.0178 1.0178 0 0 1 1.0164 1.0166z" fill="currentColor"></path>
+                    </svg>
+                    <span class="bag-badge" id="bagCount">0</span>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MEGA DROPDOWN MENU -->
+        <div class="mega-menu" id="megaMenu">
+            <div class="mega-menu-inner" id="megaMenuContent"></div>
+        </div>
+
+        <!-- SEARCH DROPDOWN -->
+        <div class="nav-dropdown" id="searchDropdown">
+            <div class="dropdown-inner">
+                <div class="search-input-wrap">
+                    <span class="search-mag">⌕</span>
+                    <input type="text" id="liveSearchInput" placeholder="Search apple.com">
+                    <button id="clearSearchBtn" class="clear-btn">Clear</button>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <p class="dropdown-label">Quick Links</p>
+                    <ul>
+                        <li><a href="#homeview" onclick="closeAllDropdowns()">→ Apple HomeView</a></li>
+                        <li><a href="#iphone" onclick="openBuyModal('iPhone 18 Pro', 1099)">→ Shop iPhone 18 Pro</a></li>
+                        <li><a href="#duo" onclick="openBuyModal('iPhone Duo', 1799)">→ Explore iPhone Duo</a></li>
+                        <li><a href="#airpods" onclick="openBuyModal('AirPods 5', 149)">→ AirPods 5</a></li>
+                        <li><a href="#watch" onclick="openBuyModal('Apple Watch Series 12', 399)">→ Apple Watch Series 12</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOPPING BAG DROPDOWN -->
+        <div class="nav-dropdown" id="bagDropdown">
+            <div class="dropdown-inner bag-inner">
+                <div id="bagItemsContainer">
+                    <h3 class="bag-empty-title">Your Bag is empty.</h3>
+                    <p class="bag-empty-sub">Sign in to see if you have any saved items.</p>
+                </div>
+                <div class="bag-footer" id="bagFooter" style="display: none;">
+                    <div class="bag-total-row">
+                        <span>Total</span>
+                        <strong id="bagTotal">$0</strong>
+                    </div>
+                    <button class="btn btn-primary full-width" onclick="checkoutBag()">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-backdrop" id="pageBackdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO 1: APPLE HOMEVIEW (Matches your screenshot 1:1) -->
+        <section class="hero homeview-hero" id="homeview">
+            <div class="hero-copy">
+                <h1 class="homeview-title"><span class="apple-glyph"></span>HomeView</h1>
+                <p class="hero-sub">Designed for life at home.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="openLearnModal('Apple HomeView')">Learn more</button>
+                    <button class="btn btn-outline-blue" onclick="openBuyModal('Apple HomeView', 299)">Buy</button>
+                </div>
+            </div>
+
+            <!-- 3 HomeView Devices Visual (Recipe, FaceTime "Mari", Music "Fever Dream") -->
+            <div class="homeview-stage">
+                <!-- Left Device: Butternut Squash Soup -->
+                <div class="hv-unit hv-left">
+                    <div class="hv-screen">
+                        <div class="hv-screen-content recipe-ui">
+                            <div class="soup-bowl">
+                                <div class="soup-inner"></div>
+                            </div>
+                            <div class="recipe-label">
+                                <strong>Butternut Squash Soup</strong>
+                                <span>35 min · Serves 4</span>
+                                <div class="recipe-pills">
+                                    <span>Ingredients</span>
+                                    <span class="active-pill">Start Cooking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hv-speaker-base silver"></div>
+                </div>
+
+                <!-- Center Device: FaceTime Call with Mari -->
+                <div class="hv-unit hv-center">
+                    <div class="hv-screen">
+                        <div class="hv-screen-content facetime-ui">
+                            <span class="ft-name">Mari</span>
+                            <div class="ft-avatar-main">
+                                <div class="ft-person-head"></div>
+                                <div class="ft-person-body"></div>
+                            </div>
+                            <div class="ft-pip">
+                                <div class="pip-head"></div>
+                            </div>
+                            <div class="ft-controls">
+                                <span class="ft-btn green">📹</span>
+                                <span class="ft-btn gray">🎤</span>
+                                <span class="ft-btn gray">•••</span>
+                                <span class="ft-btn red">✕</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hv-speaker-base rose"></div>
+                </div>
+
+                <!-- Right Device: Apple Music "FEVER DREAM" -->
+                <div class="hv-unit hv-right">
+                    <div class="hv-screen">
+                        <div class="hv-screen-content music-ui">
+                            <div class="album-art">
+                                <div class="sky-figure"></div>
+                                <span>FEVER DREAM</span>
+                            </div>
+                            <div class="music-info">
+                                <strong>Fever Dream</strong>
+                                <span>Alex Warren</span>
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                                <div class="music-controls">
+                                    <span>⏮</span>
+                                    <span>❚❚</span>
+                                    <span>⏭</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hv-speaker-base silver"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO 2: iPhone 18 Pro (Current Flagship) -->
+        <section class="hero dark-hero" id="iphone">
+            <div class="hero-copy">
+                <h1>iPhone 18 Pro</h1>
+                <p class="hero-sub">Variable aperture. Unstoppable A20 Pro.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="openLearnModal('iPhone 18 Pro')">Learn more</button>
+                    <button class="btn btn-outline-blue-dark" onclick="openBuyModal('iPhone 18 Pro', 1099)">Buy</button>
+                </div>
+            </div>
+            <div class="hero-stage">
+                <div class="device-iphone-18-pro">
+                    <div class="pro18-camera-island">
+                        <div class="lens-pro"><div class="aperture-blades"></div></div>
+                        <div class="lens-pro"></div>
+                        <div class="lens-pro"></div>
+                    </div>
+                    <div class="apple-back-logo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO 3: iPhone Duo (Foldable iPhone) -->
+        <section class="hero light-hero" id="duo">
+            <div class="hero-copy">
+                <h1>iPhone Duo</h1>
+                <p class="hero-sub">A new iPhone enters the fold.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="openLearnModal('iPhone Duo')">Learn more</button>
+                    <button class="btn btn-outline-blue" onclick="openBuyModal('iPhone Duo', 1799)">Buy</button>
+                </div>
+            </div>
+            <div class="hero-stage">
+                <div class="device-iphone-duo">
+                    <div class="duo-half left-pane">
+                        <div class="duo-wallpaper-1"></div>
+                    </div>
+                    <div class="duo-hinge"></div>
+                    <div class="duo-half right-pane">
+                        <div class="duo-wallpaper-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2-COLUMN PROMO GRID -->
+        <section class="promo-grid">
+            <!-- Card 1: Apple Watch Series 12 -->
+            <div class="promo-card light-card" id="watch">
+                <div class="card-copy">
+                    <h3>WATCH</h3>
+                    <span class="series-sub">SERIES 12</span>
+                    <p>New magnetic band system. Next-level health.</p>
+                    <div class="hero-cta small">
+                        <button class="btn btn-primary" onclick="openLearnModal('Apple Watch Series 12')">Learn more</button>
+                        <button class="btn btn-outline-blue" onclick="openBuyModal('Apple Watch Series 12', 399)">Buy</button>
+                    </div>
+                </div>
+                <div class="card-art">
+                    <div class="device-watch">
+                        <div class="watch-bezel">
+                            <div class="watch-face">
+                                <div class="activity-rings"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: AirPods 5 -->
+            <div class="promo-card light-card" id="airpods">
+                <div class="card-copy">
+                    <h3>AirPods 5</h3>
+                    <p>Open-ear Active Noise Cancellation. Live Translation.</p>
+                    <div class="hero-cta small">
+                        <button class="btn btn-primary" onclick="openLearnModal('AirPods 5')">Learn more</button>
+                        <button class="btn btn-outline-blue" onclick="openBuyModal('AirPods 5', 149)">Buy</button>
+                    </div>
+                </div>
+                <div class="card-art airpods-art">
+                    <div class="pod left"></div>
+                    <div class="pod right"></div>
+                </div>
+            </div>
+
+            <!-- Card 3: MacBook Pro M6 -->
+            <div class="promo-card dark-card" id="mac">
+                <div class="card-copy">
+                    <h3>MacBook Pro</h3>
+                    <p>M6 Pro and M6 Max. Tandem OLED display.</p>
+                    <div class="hero-cta small">
+                        <button class="btn btn-primary" onclick="openLearnModal('MacBook Pro M6')">Learn more</button>
+                        <button class="btn btn-outline-blue-dark" onclick="openBuyModal('MacBook Pro 14-inch', 1999)">Buy</button>
+                    </div>
+                </div>
+                <div class="card-art macbook-art">
+                    <div class="mac-lid"></div>
+                    <div class="mac-base"></div>
+                </div>
+            </div>
+
+            <!-- Card 4: iPad mini OLED -->
+            <div class="promo-card dark-card" id="ipad">
+                <div class="card-copy">
+                    <h3>iPad mini</h3>
+                    <p>OLED display. A19 Pro. Ultra-portable powerhouse.</p>
+                    <div class="hero-cta small">
+                        <button class="btn btn-primary" onclick="openLearnModal('iPad mini')">Learn more</button>
+                        <button class="btn btn-outline-blue-dark" onclick="openBuyModal('iPad mini', 499)">Buy</button>
+                    </div>
+                </div>
+                <div class="card-art ipad-art"></div>
+            </div>
+
+            <!-- Card 5: HomePod mini 2 -->
+            <div class="promo-card light-card" id="store">
+                <div class="card-copy">
+                    <h3>HomePod mini 2</h3>
+                    <p>Room-filling Spatial Audio with Siri AI.</p>
+                    <div class="hero-cta small">
+                        <button class="btn btn-primary" onclick="openLearnModal('HomePod mini 2')">Learn more</button>
+                        <button class="btn btn-outline-blue" onclick="openBuyModal('HomePod mini 2', 99)">Buy</button>
+                    </div>
+                </div>
+                <div class="card-art">
+                    <div class="homepod-orb"></div>
+                </div>
+            </div>
+
+            <!-- Card 6: Apple Vision Pro -->
+            <div class="promo-card dark-card" id="vision">
+                <div class="card-copy">
+                    <h3>Vision Pro</h3>
+                    <p>Welcome to the era of spatial computing.</p>
+                    <div class="hero-cta small">
+                        <button class="btn btn-primary" onclick="openLearnModal('Apple Vision Pro')">Learn more</button>
+                        <button class="btn btn-outline-blue-dark" onclick="openBuyModal('Apple Vision Pro', 3499)">Buy</button>
+                    </div>
+                </div>
+                <div class="card-art">
+                    <div class="visor"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPLE TV+ & ENTERTAINMENT CAROUSEL -->
+        <section class="tv-section" id="entertainment">
+            <div class="carousel-container">
+                <div class="carousel-track" id="tvTrack">
+                    <div class="tv-slide" style="background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);">
+                        <div class="tv-overlay">
+                            <span class="tv-brand"> tv+</span>
+                            <div class="tv-meta">
+                                <button class="btn btn-white" onclick="openLearnModal('Slow Horses — Apple TV+')">Watch now</button>
+                                <p><strong>Thriller</strong> · MI5’s most unruly spies are back and under attack.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tv-slide" style="background: linear-gradient(135deg, #1d3557, #457b9d, #a8dadc);">
+                        <div class="tv-overlay">
+                            <span class="tv-brand"> tv+</span>
+                            <div class="tv-meta">
+                                <button class="btn btn-white" onclick="openLearnModal('Ted Lasso — Apple TV+')">Watch now</button>
+                                <p><strong>Comedy</strong> · Join the Team with “Ted Lasso”.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tv-slide" style="background: linear-gradient(135deg, #2b1055, #7597de);">
+                        <div class="tv-overlay">
+                            <span class="tv-brand"> Music</span>
+                            <div class="tv-meta">
+                                <button class="btn btn-white" onclick="openLearnModal('Miley: The Zane Lowe Interview')">Listen now</button>
+                                <p><strong>Interview</strong> · Miley: The Zane Lowe Interview.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tv-slide" style="background: linear-gradient(135deg, #ff5f6d, #ffc371);">
+                        <div class="tv-overlay">
+                            <span class="tv-brand"> Arcade</span>
+                            <div class="tv-meta">
+                                <button class="btn btn-white" onclick="openLearnModal('Hello Kitty Island Adventure')">Play now</button>
+                                <p><strong>Adventure</strong> · Hello Kitty Island Adventure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tv-controls">
+                <div class="tv-dots" id="tvDots">
+                    <button class="tv-dot active" data-slide="0"></button>
+                    <button class="tv-dot" data-slide="1"></button>
+                    <button class="tv-dot" data-slide="2"></button>
+                    <button class="tv-dot" data-slide="3"></button>
+                </div>
+                <button class="play-pause-btn" id="playPauseBtn" aria-label="Pause slideshow">❚❚</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- BUY / CONFIGURATOR MODAL -->
+    <div class="modal-overlay" id="buyModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModals()">&times;</button>
+            <span class="modal-tag">New</span>
+            <h2 id="buyProductTitle">Buy Apple HomeView</h2>
+            <p class="modal-price" id="buyProductPrice">Total: $299</p>
+
+            <div class="config-group">
+                <label>Finish. <span>Pick your favorite.</span></label>
+                <div class="color-options" id="colorOptions">
+                    <button class="color-swatch active" data-color="Silver" style="background:#e3e4e5;" title="Silver"></button>
+                    <button class="color-swatch" data-color="Starlight" style="background:#f0e5d8;" title="Starlight"></button>
+                    <button class="color-swatch" data-color="Rose Pink" style="background:#e8c5c8;" title="Rose Pink"></button>
+                    <button class="color-swatch" data-color="Space Gray" style="background:#4a4a4d;" title="Space Gray"></button>
+                </div>
+                <p class="selected-label" id="selectedColorText">Finish: Silver</p>
+            </div>
+
+            <div class="config-group">
+                <label>Configuration / Capacity.</label>
+                <div class="storage-options" id="storageOptions">
+                    <button class="storage-btn active" data-extra="0" data-size="Standard / 256GB">Standard <span>Included</span></button>
+                    <button class="storage-btn" data-extra="100" data-size="Pro / 512GB">Plus / 512GB <span>+$100</span></button>
+                    <button class="storage-btn" data-extra="300" data-size="Max / 1TB">Max / 1TB <span>+$300</span></button>
+                </div>
+            </div>
+
+            <button class="btn btn-primary full-width" id="addToBagConfirmBtn">Add to Bag</button>
+        </div>
+    </div>
+
+    <!-- LEARN MORE MODAL -->
+    <div class="modal-overlay" id="learnModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModals()">&times;</button>
+            <span class="modal-tag">Overview</span>
+            <h2 id="learnTitle">Apple HomeView</h2>
+            <p id="learnDesc" class="learn-body"></p>
+            <ul class="specs-list" id="learnSpecs"></ul>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="learnToBuyBtn">Buy Now</button>
+                <button class="btn btn-outline-blue" onclick="closeModals()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="global-footer" id="support">
+        <div class="footer-wrap">
+            <div class="footnotes">
+                <p>1. Siri AI on Apple HomeView is available in English in select regions and requires a compatible iPhone or iPad running the latest software.</p>
+                <p>2. Trade-in values will vary based on the condition, year, and configuration of your eligible trade-in device.</p>
+                <p>3. A subscription is required for Apple TV+, Apple Music, and Apple Arcade.</p>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Shop and Learn</h4>
+                    <ul>
+                        <li><a href="#store">Store</a></li>
+                        <li><a href="#mac">Mac</a></li>
+                        <li><a href="#ipad">iPad</a></li>
+                        <li><a href="#iphone">iPhone</a></li>
+                        <li><a href="#watch">Watch</a></li>
+                        <li><a href="#vision">Vision</a></li>
+                        <li><a href="#airpods">AirPods</a></li>
+                        <li><a href="#homeview">Home</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Apple Wallet</h4>
+                    <ul>
+                        <li><a href="#">Wallet</a></li>
+                        <li><a href="#">Apple Card</a></li>
+                        <li><a href="#">Apple Pay</a></li>
+                        <li><a href="#">Apple Cash</a></li>
+                    </ul>
+                    <h4 style="margin-top:18px;">Account</h4>
+                    <ul>
+                        <li><a href="#">Manage Your Apple Account</a></li>
+                        <li><a href="#">Apple Store Account</a></li>
+                        <li><a href="#">iCloud.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Entertainment</h4>
+                    <ul>
+                        <li><a href="#entertainment">Apple One</a></li>
+                        <li><a href="#entertainment">Apple TV+</a></li>
+                        <li><a href="#entertainment">Apple Music</a></li>
+                        <li><a href="#entertainment">Apple Arcade</a></li>
+                        <li><a href="#entertainment">Apple Fitness+</a></li>
+                        <li><a href="#entertainment">Apple News+</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Apple Store</h4>
+                    <ul>
+                        <li><a href="#">Find a Store</a></li>
+                        <li><a href="#">Genius Bar</a></li>
+                        <li><a href="#">Today at Apple</a></li>
+                        <li><a href="#">Apple Camp</a></li>
+                        <li><a href="#">Apple Trade In</a></li>
+                        <li><a href="#">Order Status</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>About Apple</h4>
+                    <ul>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Apple Leadership</a></li>
+                        <li><a href="#">Career Opportunities</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Ethics & Compliance</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="retailer-line">More ways to shop: <a href="#">Find an Apple Store</a> or <a href="#">other retailer</a> near you. Or call 1-800-MY-APPLE.</p>
+                <div class="copyright-line">
+                    <span>Copyright © 2026 Apple Inc. All rights reserved.</span>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a> |
+                        <a href="#">Terms of Use</a> |
+                        <a href="#">Sales and Refunds</a> |
+                        <a href="#">Legal</a> |
+                        <a href="#">Site Map</a>
+                    </div>
+                    <span id="footerCountry">United States</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
